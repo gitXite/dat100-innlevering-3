@@ -53,19 +53,12 @@ public abstract class Innlegg {
 	}
 	
 	public boolean erLik(Innlegg innlegg) {
-		return this.id == innlegg.getId();
+		return id == innlegg.getId();
 	}
 	
 	@Override
 	public String toString() {
-        return this.id +
-                "\n" +
-                this.bruker +
-                "\n" +
-                this.dato +
-                "\n" +
-                this.likes +
-                "\n";
+        return String.format("%d\n%s\n%s\n%d\n", id, bruker, dato, likes);
 	}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6

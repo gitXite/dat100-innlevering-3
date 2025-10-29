@@ -30,18 +30,7 @@ public class Tekst extends Innlegg {
 
 	@Override
 	public String toString() {
-		return "TEKST" +
-                "\n" +
-                this.getId() +
-                "\n" +
-                this.getBruker() +
-                "\n" +
-                this.getDato() +
-                "\n" +
-                this.getLikes() +
-                "\n" +
-                this.tekst +
-                "\n";
+		return "TEKST\n" + super.toString() + tekst + "\n";
 	}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6

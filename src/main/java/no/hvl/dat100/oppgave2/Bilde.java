@@ -25,20 +25,7 @@ public class Bilde extends Tekst {
 
 	@Override
 	public String toString() {
-		return "BILDE" +
-                "\n" +
-                this.getId() +
-                "\n" +
-                this.getBruker() +
-                "\n" +
-                this.getDato() +
-                "\n" +
-                this.getLikes() +
-                "\n" +
-                this.tekst +
-                "\n" +
-                this.url +
-                "\n";
+		return super.toString().replaceFirst("TEKST", "BILDE") + url + "\n";
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
