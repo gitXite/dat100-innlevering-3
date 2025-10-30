@@ -5,42 +5,67 @@ import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+	private Innlegg[] innleggTabell;
+	private int nesteLedig;
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.innleggTabell = new Innlegg[20];
+        this.nesteLedig = getAntall();
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.innleggTabell = new Innlegg[lengde];
+        this.nesteLedig = getAntall();
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		int antall = 0;
+        for (Innlegg inl : this.innleggTabell) {
+            if (inl != null) {
+                antall++;
+            }
+        }
+        return antall;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		return this.innleggTabell;
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i = 0; i < this.innleggTabell.length; i++) {
+			if (innlegg.erLik(this.innleggTabell[i])) {
+                return i;
+            }
+		}
+		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		for (Innlegg inl : this.innleggTabell) {
+            if (innlegg.erLik(inl)) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
-
-	}
+        for (Innlegg inl : this.innleggTabell) {
+            if (inl == null && nesteLedig <= this.innleggTabell.length) {
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	public boolean leggTil(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+        if (ledigPlass() && !finnes(innlegg)) {
+            this.innleggTabell[nesteLedig] = innlegg;
+            nesteLedig++;
+            return true;
+        }
+        return false;
 	}
 	
 	public String toString() {

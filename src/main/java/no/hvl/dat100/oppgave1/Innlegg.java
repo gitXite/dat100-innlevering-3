@@ -52,9 +52,8 @@ public abstract class Innlegg {
         likes++;
 	}
 
-	@Override
 	public boolean erLik(Innlegg innlegg) {
-		return id == innlegg.getId();
+		return (innlegg != null && id == innlegg.getId());
 	}
 	
 	@Override
