@@ -51,7 +51,8 @@ public abstract class Innlegg {
 	public void doLike() {
         likes++;
 	}
-	
+
+	@Override
 	public boolean erLik(Innlegg innlegg) {
 		return id == innlegg.getId();
 	}
