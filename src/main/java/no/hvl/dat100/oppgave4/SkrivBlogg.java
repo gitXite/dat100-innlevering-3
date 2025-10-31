@@ -16,7 +16,8 @@ public class SkrivBlogg {
         } catch (FileNotFoundException e) {
             System.err.printf("Fil [%s] i mappe [%s] ikke funnet\n", filnavn, mappe);
             e.printStackTrace();
-            return false;
         }
+
+        return false;
 	}
 }
