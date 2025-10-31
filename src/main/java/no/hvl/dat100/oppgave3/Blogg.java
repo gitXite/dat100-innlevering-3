@@ -72,7 +72,9 @@ public class Blogg {
 		StringBuilder sb = new StringBuilder();
         sb.append(getAntall()).append("\n");
         for (Innlegg inl : this.innleggTabell) {
-            sb.append(inl.toString());
+            if (inl != null) {
+                sb.append(inl.toString());
+            }
         }
         return sb.toString();
 	}
