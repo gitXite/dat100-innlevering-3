@@ -69,7 +69,12 @@ public class Blogg {
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		StringBuilder sb = new StringBuilder();
+        sb.append(getAntall()).append("\n");
+        for (Innlegg inl : this.innleggTabell) {
+            sb.append(inl.toString());
+        }
+        return sb.toString();
 	}
 
 	// valgfrie oppgaver nedenfor
