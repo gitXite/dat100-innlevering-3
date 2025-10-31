@@ -89,22 +89,40 @@ public class Blogg {
 	}
 	
 	public boolean leggTilUtvid(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
-		
+		boolean lagtTil = leggTil(innlegg);
+		if (!lagtTil && nesteLedig > this.innleggTabell.length) {
+			utvid();
+			lagtTil = leggTil(innlegg);
+		}
+		return lagtTil;
 	}
 	
 	public boolean slett(Innlegg innlegg) {
         if (finnes(innlegg)) {
-            this.innleggTabell[finnInnlegg(innlegg)] = null;
-            return true;
+	        this.innleggTabell[finnInnlegg(innlegg)] = null;
+	        return true;
         }
 		return false;
 	}
 	
 	public int[] search(String keyword) {
-		
-		throw new UnsupportedOperationException(TODO.method());
+		int[] idTabell;
+		int[] temp = new int[getAntall()];
+		int antall = 0;
 
+		for (int i = 0; i < getAntall(); i++) {
+			if (this.innleggTabell[i] != null && this.innleggTabell[i].getTekst().contains(keyword)) {
+				temp[antall] = this.innleggTabell[i].getId();
+				antall++;
+			}
+		}
+
+		idTabell = new int[antall];
+		for (int i = 0; i < temp.length; i++) {
+			if (temp[i] != 0) {
+				idTabell[i] = temp[i];
+			}
+		}
+		return idTabell;
 	}
 }
