@@ -111,7 +111,7 @@ public class Blogg {
 		int antall = 0;
 
 		for (int i = 0; i < getAntall(); i++) {
-			if (this.innleggTabell[i] != null && this.innleggTabell[i].getTekst().contains(keyword)) {
+			if (this.innleggTabell[i] != null && this.innleggTabell[i].toString().contains(keyword)) {
 				temp[antall] = this.innleggTabell[i].getId();
 				antall++;
 			}
