@@ -79,10 +79,13 @@ public class Blogg {
         return sb.toString();
 	}
 
-	// valgfrie oppgaver nedenfor
-	
 	public void utvid() {
-		throw new UnsupportedOperationException(TODO.method());
+		int str = this.innleggTabell.length;
+        Innlegg[] nySamling = new Innlegg[str * 2];
+        for (int i = 0; i < str; i++) {
+            nySamling[i] = this.innleggTabell[i];
+        }
+        this.innleggTabell = nySamling;
 	}
 	
 	public boolean leggTilUtvid(Innlegg innlegg) {
@@ -92,8 +95,11 @@ public class Blogg {
 	}
 	
 	public boolean slett(Innlegg innlegg) {
-		
-		throw new UnsupportedOperationException(TODO.method());
+        if (finnes(innlegg)) {
+            this.innleggTabell[finnInnlegg(innlegg)] = null;
+            return true;
+        }
+		return false;
 	}
 	
 	public int[] search(String keyword) {

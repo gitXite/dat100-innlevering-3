@@ -60,8 +60,7 @@ public abstract class Innlegg {
 	public String toString() {
         return String.format("%d\n%s\n%s\n%d\n", id, bruker, dato, likes);
 	}
-	
-	// Metoden nedenfor er kun for valgfri oppgave 6
+
 	public String toHTML() {
         return String.format("\t\t<h2>%s@%s [%d]</h2>\n", bruker, dato, likes);
 	}

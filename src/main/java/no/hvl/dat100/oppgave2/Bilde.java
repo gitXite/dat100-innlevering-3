@@ -28,7 +28,6 @@ public class Bilde extends Tekst {
 		return super.toString().replaceFirst("TEKST", "BILDE") + url + "\n";
 	}
 
-	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		return super.toHTML()
             .replaceFirst("<hr>\n", "")
