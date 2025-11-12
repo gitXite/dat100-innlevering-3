@@ -4,35 +4,36 @@ import no.hvl.dat100.common.TODO;
 
 public class Bilde extends Tekst {
 
-	// TODO - objekt variable
+	private String url;
 	
 	public Bilde(int id, String bruker, String dato, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		this(id, bruker, dato, 0, tekst, url);
 	}
 
 	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, likes, tekst);
+        this.url = url;
 	}
 	
 	public String getUrl() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		return this.url;
 	}
 
 	public void setUrl(String url) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.url = url;
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method ());
-
+		return super.toString().replaceFirst("TEKST", "BILDE") + url + "\n";
 	}
 
-	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-				
+		return super.toHTML()
+            .replaceFirst("<hr>\n", "")
+            + String.format(
+                "<iframe src='%s' height=600 width=800></iframe>\n\t\t<hr>\n",
+                url
+            );
 	}
 }
